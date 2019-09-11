@@ -9,7 +9,7 @@ RUN go install -ldflags "-s -w"
 FROM alpine:3.10
 RUN apk add --no-cache bind-tools
 COPY --from=build /go/bin/dnscrypt-proxy /usr/bin/
-COPY --from=build /go/github.com/jedisct1/dnscrypt-proxy/dnscrypt-proxy/example-dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+COPY dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 
 ENTRYPOINT ["/usr/bin/dnscrypt-proxy"]
 CMD ["-config", "/etc/dnscrypt-proxy/dnscrypt-proxy.toml"]
