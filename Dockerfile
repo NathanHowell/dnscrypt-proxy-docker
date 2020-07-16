@@ -1,9 +1,9 @@
 FROM golang:alpine AS build
 
 RUN apk add --no-cache curl tar
-RUN mkdir -p /go/github.com/jedisct1/dnscrypt-proxy
-RUN curl --silent -L https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.27.tar.gz | tar -C /go/github.com/jedisct1/dnscrypt-proxy --strip-components=1 -xzvf -
-WORKDIR /go/github.com/jedisct1/dnscrypt-proxy/dnscrypt-proxy
+RUN mkdir -p /go/github.com/DNSCrypt/dnscrypt-proxy
+RUN curl --silent -L https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.0.44.tar.gz | tar -C /go/github.com/DNSCrypt/dnscrypt-proxy --strip-components=1 -xzvf -
+WORKDIR /go/github.com/DNSCrypt/dnscrypt-proxy/dnscrypt-proxy
 RUN go install -ldflags "-s -w"
 
 FROM alpine:3.12.0
