@@ -1,4 +1,4 @@
-FROM golang:1.14.6-alpine3.12 AS build
+FROM golang:1.14.7-alpine3.12 AS build
 
 RUN apk add --no-cache curl tar
 RUN mkdir -p /go/github.com/DNSCrypt/dnscrypt-proxy
